@@ -45,6 +45,22 @@
                         <li role="separator" class="divider"></li>
 
                         <li>
+                            <a href="{{ route('admin.cadastros.categoria.grid') }}">
+                                Categorias
+                            </a>
+                        </li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li>
+                            <a href="{{ route('admin.cadastros.produto.grid') }}">
+                                Produtos
+                            </a>
+                        </li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li>
                             <a href="{{ route('admin.cadastros.rede-social.grid') }}">
                                 Redes Sociais
                             </a>
