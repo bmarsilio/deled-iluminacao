@@ -39,6 +39,10 @@ class NoticiaController extends AbstractCrudController
     {
         $noticia = $this->model->find($noticia_id);
 
+        if(!$noticia) {
+            abort(404);
+        }
+
         return view('noticias.noticia', compact('noticia'));
     }
 

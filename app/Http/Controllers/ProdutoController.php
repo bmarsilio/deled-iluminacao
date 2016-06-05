@@ -120,6 +120,10 @@ class ProdutoController extends AbstractCrudController
     {
         $categoria = $this->model_categoria->find($categoria_id);
 
+        if(!$categoria) {
+            abort(404);
+        }
+
         return view('produtos.produtos', compact('categoria'));
     }
 
