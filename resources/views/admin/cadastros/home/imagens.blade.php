@@ -15,7 +15,7 @@
                 Nova Imagem
             </a>
 
-            <h3>Imagens do item: <i>{{ $item_home->titulo }}</i></h3>
+            <h3>Imagens do item: <i>{{ $item_home->descricao }}</i></h3>
 
             <hr />
         </div>

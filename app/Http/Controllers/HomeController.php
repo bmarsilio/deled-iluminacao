@@ -64,7 +64,7 @@ class HomeController extends AbstractCrudController
 
         if($item_home->imagens()->first()) {
 
-            throw new RedirectBackWithErrorException('A coleção selecionada possui imagens vinculadas. Para excluí-la, primeiro exclua todas as imagens vinculadas a esta coleção');
+            throw new RedirectBackWithErrorException('O item selecionado possui imagens vinculadas. Para excluí-lo, primeiro exclua todas as imagens vinculadas a este item.');
         }
 
         $this->model->find($id)->delete();
