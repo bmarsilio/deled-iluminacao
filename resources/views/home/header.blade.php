@@ -4,8 +4,10 @@
 {{--*/ $categorias = $controller->getCategorias() /*--}}
 
 
-<div class="brand">Business Casual</div>
+<div class="brand">DELED ILuminação</div>
+<!--
 <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+-->
 
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
