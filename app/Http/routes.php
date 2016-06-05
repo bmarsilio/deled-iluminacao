@@ -68,8 +68,8 @@ Route::group(['prefix' => '/admin'], function() {
     });
 
     Route::group(['prefix' => '/relatorios'], function() {
-        //Route::get('/contatos', ['as' => 'admin.relatorios.contatos.index', 'uses' => 'RelatorioController@indexRelatorioContato']);
-        //Route::post('/contatos', ['as' => 'admin.relatorio.contatos.form', 'uses' => 'RelatorioController@relatorioContatos']);
+        Route::get('/contatos', ['as' => 'admin.relatorios.contatos.index', 'uses' => 'RelatorioController@indexRelatorioContato']);
+        Route::post('/contatos', ['as' => 'admin.relatorio.contatos.form', 'uses' => 'RelatorioController@relatorioContatos']);
     });
 });
 

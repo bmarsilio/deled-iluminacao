@@ -62,7 +62,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.relatorios.contatos.index') }}">
                                 1 - Contatos
                             </a>
                         </li>
