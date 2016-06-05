@@ -113,7 +113,7 @@ class HomeController extends AbstractCrudController
         }
 
         $item_home = $imagem->itemHome;
-        
+
         $imagem->delete();
 
         return redirect()->route($this->route.'.imagens', ['id' => $item_home->id]);

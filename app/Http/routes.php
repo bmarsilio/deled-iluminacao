@@ -13,7 +13,7 @@
 
 Route::group(['prefix' => '/admin'], function() {
 
-    Route::get('/', ['as' => 'admin', /*'middleware' => 'auth',*/ 'uses' => 'AdminController@index']);
+    Route::get('/', ['as' => 'admin', 'middleware' => 'auth', 'uses' => 'AdminController@index']);
 
     Route::group(['prefix' => '/cadastros'], function() {
 
@@ -87,3 +87,7 @@ Route::group(['prefix' => '/'], function() {
     Route::get('/noticias', ['as' => 'home.noticias.index', 'uses' => 'NoticiaController@index']);
     Route::get('/noticia/{noticia_id}', ['as' => 'home.noticia', 'uses' => 'NoticiaController@showNoticia']);
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
