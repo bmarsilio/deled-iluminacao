@@ -116,6 +116,13 @@ class ProdutoController extends AbstractCrudController
         return redirect()->route($this->route.'.imagens', ['id' => $produto->id]);
     }
 
+    public function showProductsByCategoriaId($categoria_id)
+    {
+        $categoria = $this->model_categoria->find($categoria_id);
+
+        return view('produtos.produtos', compact('categoria'));
+    }
+
     public function getCategorias()
     {
         return $this->model_categoria->all();

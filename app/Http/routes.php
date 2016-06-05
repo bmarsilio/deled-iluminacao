@@ -108,6 +108,8 @@ Route::group(['prefix' => '/'], function() {
     });
 
     Route::get('/sobre', ['as' => 'home.sobre.index', 'uses' => 'SobreController@index']);
+    
+    Route::get('/produtos/{categoria_id}', ['as' => 'home.produto.index', 'uses' => 'ProdutoController@showProductsByCategoriaId']);
 
     Route::get('/noticias', ['as' => 'home.noticias.index', 'uses' => 'NoticiaController@index']);
     Route::get('/noticia/{noticia_id}', ['as' => 'home.noticia', 'uses' => 'NoticiaController@showNoticia']);
