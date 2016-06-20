@@ -1,5 +1,13 @@
-<div class="brand">Business Casual</div>
+@inject('controller', 'Iluminacao\Http\Controllers\ProdutoController')
+
+{{-- CHAMA CATEGORIAS CADASTRADAS--}}
+{{--*/ $categorias = $controller->getCategorias() /*--}}
+
+
+<div class="brand">DELED ILuminação</div>
+<!--
 <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+-->
 
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -21,12 +29,31 @@
                 <li>
                     <a href="{{ route('home.index') }}">Home</a>
                 </li>
+
                 <li>
                     <a href="{{ route('home.sobre.index') }}">Sobre</a>
                 </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Produtos
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach($categorias as $categoria)
+                            <li>
+                                <a href="{{ route('home.produto.index', ['categoria_id' => $categoria->id]) }}">
+                                    {{ $categoria->descricao }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+
                 <li>
                     <a href="{{ route('home.noticias.index') }}">Notícias</a>
                 </li>
+
                 <li>
                     <a href="{{ route('contato.index') }}">Contato</a>
                 </li>

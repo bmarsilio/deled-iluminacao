@@ -17,6 +17,12 @@
             <hr />
         </div>
 
+        @if(Session::has('erro'))
+            <div class="alert alert-danger text-center" role="alert">
+                <p><strong>{{ Session::get('erro') }}</strong></p>
+            </div>
+        @endif
+
         <div class="table-responsive">
             <table class="table table-striped table-hover" id="table">
                 <thead>

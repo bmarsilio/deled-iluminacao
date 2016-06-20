@@ -7,15 +7,16 @@
     <div class="container">
 
         <div class="row">
-            <a href="{{ route('admin.cadastros.noticia.create') }}" class="btn btn-default">
+            <a href="{{ route('admin.cadastros.categoria.create') }}" class="btn btn-default">
                 <i class="glyphicon glyphicon-file"></i>
-                Nova Notícia
+                Nova Categoria
             </a>
 
-            <h3>Notícias</h3>
+            <h3>Categorias</h3>
 
             <hr />
         </div>
+
 
         @if(Session::has('erro'))
             <div class="alert alert-danger text-center" role="alert">
@@ -28,32 +29,27 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Título</th>
+                    <th>Descrição</th>
                     <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
 
-                @foreach($data as $noticia)
+                @foreach($data as $categoria)
 
                     <tr>
 
-                        <td>{{ $noticia->id }}</td>
-                        <td>{{ $noticia->titulo }}</td>
+                        <td>{{ $categoria->id }}</td>
+                        <td>{{ $categoria->descricao }}</td>
                         <td>
 
-                            <a href="{{ route('admin.cadastros.noticia.edit', ['id' => $noticia->id]) }}" class="btn btn-primary">
+                            <a href="{{ route('admin.cadastros.categoria.edit', ['id' => $categoria->id]) }}" class="btn btn-primary">
                                 Editar
                                 <i class="glyphicon glyphicon-pencil"></i>
                             </a>
 
-                            <a href="{{ route('admin.cadastros.noticia.imagens', ['id' => $noticia->id]) }}" class="btn btn-warning">
-                                Imagens
-                                <i class="glyphicon glyphicon-picture"></i>
-                            </a>
-
-                            <a href="{{ route('admin.cadastros.noticia.destroy', ['id' => $noticia->id]) }}" class="btn btn-danger">
+                            <a href="{{ route('admin.cadastros.categoria.destroy', ['id' => $categoria->id]) }}" class="btn btn-danger">
                                 Excluir
                                 <i class="glyphicon glyphicon-trash"></i>
                             </a>

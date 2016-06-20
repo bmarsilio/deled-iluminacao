@@ -5,17 +5,17 @@
 
         <div class="row">
 
-            <a href="{{ route('admin.cadastros.home.grid') }}" class="btn btn-default">
+            <a href="{{ route('admin.cadastros.produto.grid') }}" class="btn btn-default">
             <i class="glyphicon glyphicon-arrow-left"></i>
             Voltar
             </a>
 
-            <a href="{{ route('admin.cadastros.home.imagens.create', ['id' => $item_home->id]) }}" class="btn btn-default">
+            <a href="{{ route('admin.cadastros.produto.imagens.create', ['id' => $produto->id]) }}" class="btn btn-default">
                 <i class="glyphicon glyphicon-file"></i>
                 Nova Imagem
             </a>
 
-            <h3>Imagens do item: <i>{{ $item_home->descricao }}</i></h3>
+            <h3>Imagens do produto: <i>{{ $produto->titulo }}</i></h3>
 
             <hr />
         </div>
@@ -33,19 +33,18 @@
 
                 <tbody>
 
-                @foreach($item_home->imagens as $image)
+                @foreach($produto->imagens as $image)
                     <tr>
                         <td>{{ $image->id }}</td>
 
                         <td>
-                            <img src="{{ url('/uploads/itens_home/item_home_'.$image->id.'.'.$image->extensao) }}" width="80px">
+                            <img src="{{ url('/uploads/produtos/produto_'.$image->id.'.'.$image->extensao) }}" width="80px">
                         </td>
 
                         <td>{{ $image->extensao }}</td>
 
                         <td>
-
-                            <a href="{{ route('admin.cadastros.home.imagens.destroy', ['id' => $image->id]) }}" class="btn btn-danger">
+                            <a href="{{ route('admin.cadastros.produto.imagens.destroy', ['id' => $image->id]) }}" class="btn btn-danger">
                                 Excluir
                                 <i class="glyphicon glyphicon-trash"></i>
                             </a>

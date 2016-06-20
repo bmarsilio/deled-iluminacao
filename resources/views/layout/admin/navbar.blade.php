@@ -45,6 +45,22 @@
                         <li role="separator" class="divider"></li>
 
                         <li>
+                            <a href="{{ route('admin.cadastros.categoria.grid') }}">
+                                Categorias
+                            </a>
+                        </li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li>
+                            <a href="{{ route('admin.cadastros.produto.grid') }}">
+                                Produtos
+                            </a>
+                        </li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li>
                             <a href="{{ route('admin.cadastros.rede-social.grid') }}">
                                 Redes Sociais
                             </a>
@@ -62,7 +78,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.relatorios.contatos.index') }}">
                                 1 - Contatos
                             </a>
                         </li>
@@ -71,7 +87,6 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/register">Criar uma nova conta</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </div>

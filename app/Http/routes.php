@@ -13,7 +13,7 @@
 
 Route::group(['prefix' => '/admin'], function() {
 
-    Route::get('/', ['as' => 'admin', /*'middleware' => 'auth',*/ 'uses' => 'AdminController@index']);
+    Route::get('/', ['as' => 'admin', 'middleware' => 'auth', 'uses' => 'AdminController@index']);
 
     Route::group(['prefix' => '/cadastros'], function() {
 
@@ -65,11 +65,36 @@ Route::group(['prefix' => '/admin'], function() {
             });
         });
 
+        Route::group(['prefix' => '/categoria'], function() {
+            Route::get('/', ['as' => 'admin.cadastros.categoria.grid', 'uses' => 'CategoriaController@grid']);
+            Route::get('/create', ['as' => 'admin.cadastros.categoria.create', 'uses' => 'CategoriaController@create']);
+            Route::post('/store', ['as' => 'admin.cadastros.categoria.store', 'uses' => 'CategoriaController@store']);
+            Route::get('/edit/{id}', ['as' => 'admin.cadastros.categoria.edit', 'uses' => 'CategoriaController@edit']);
+            Route::put('/update/{id}', ['as' => 'admin.cadastros.categoria.update', 'uses' => 'CategoriaController@update']);
+            Route::get('/destroy/{id}', ['as' => 'admin.cadastros.categoria.destroy', 'uses' => 'CategoriaController@destroy']);
+        });
+
+        Route::group(['prefix' => '/produto'], function() {
+            Route::get('/', ['as' => 'admin.cadastros.produto.grid', 'uses' => 'ProdutoController@grid']);
+            Route::get('/create', ['as' => 'admin.cadastros.produto.create', 'uses' => 'ProdutoController@create']);
+            Route::post('/store', ['as' => 'admin.cadastros.produto.store', 'uses' => 'ProdutoController@store']);
+            Route::get('/edit/{id}', ['as' => 'admin.cadastros.produto.edit', 'uses' => 'ProdutoController@edit']);
+            Route::put('/update/{id}', ['as' => 'admin.cadastros.produto.update', 'uses' => 'ProdutoController@update']);
+            Route::get('/destroy/{id}', ['as' => 'admin.cadastros.produto.destroy', 'uses' => 'ProdutoController@destroy']);
+
+            Route::group(['prefix' => '/imagens'], function() {
+                Route::get('/{id}', ['as' => 'admin.cadastros.produto.imagens', 'uses' => 'ProdutoController@imagens']);
+                Route::get('/create/{id}', ['as' => 'admin.cadastros.produto.imagens.create', 'uses' => 'ProdutoController@createImagem']);
+                Route::post('/store/{id}', ['as' => 'admin.cadastros.produto.imagens.store', 'uses' => 'ProdutoController@storeImagem']);
+                Route::get('/destroy/{id}', ['as' => 'admin.cadastros.produto.imagens.destroy', 'uses' => 'ProdutoController@destroyImagem']);
+            });
+        });
+
     });
 
     Route::group(['prefix' => '/relatorios'], function() {
-        //Route::get('/contatos', ['as' => 'admin.relatorios.contatos.index', 'uses' => 'RelatorioController@indexRelatorioContato']);
-        //Route::post('/contatos', ['as' => 'admin.relatorio.contatos.form', 'uses' => 'RelatorioController@relatorioContatos']);
+        Route::get('/contatos', ['as' => 'admin.relatorios.contatos.index', 'uses' => 'RelatorioController@indexRelatorioContato']);
+        Route::post('/contatos', ['as' => 'admin.relatorio.contatos.form', 'uses' => 'RelatorioController@relatorioContatos']);
     });
 });
 
@@ -83,7 +108,13 @@ Route::group(['prefix' => '/'], function() {
     });
 
     Route::get('/sobre', ['as' => 'home.sobre.index', 'uses' => 'SobreController@index']);
+    
+    Route::get('/produtos/{categoria_id}', ['as' => 'home.produto.index', 'uses' => 'ProdutoController@showProductsByCategoriaId']);
 
     Route::get('/noticias', ['as' => 'home.noticias.index', 'uses' => 'NoticiaController@index']);
     Route::get('/noticia/{noticia_id}', ['as' => 'home.noticia', 'uses' => 'NoticiaController@showNoticia']);
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
